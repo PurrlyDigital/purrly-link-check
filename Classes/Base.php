@@ -6,24 +6,24 @@ if( ! defined( 'ABSPATH' ) ) {
 	die();
 }
 
-abstract class Base {
+class Base {
 
-	public $pluginURL;
-	public $pluginPath;
-	public $customNonce;
-	public $wpdb;
-	public $customPrefix  = 'purrly_link_check';
-	public $pluginDirName = 'purrly_link_check';
+	public string $pluginURL;
+	public string $pluginPath;
+	public string $customNonce;
+	public \wpdb  $wpdb;
+	public string $customPrefix = 'purrly_link_check';
+	public string $settingsName;
 
 	public function __construct() {
 
 		global $wpdb;
 
-		$this->pluginPath  = realpath( dirname( __FILE__, 2 ) );
-		$this->pluginURL   = plugins_url( basename( dirname( __FILE__, 2 ) ) );
-		$this->customNonce = "{$this->customPrefix}Nonce";
-		$this->wpdb        = $wpdb;
-
+		$this->pluginPath   = realpath( dirname( __FILE__, 2 ) );
+		$this->pluginURL    = plugins_url( basename( dirname( __FILE__, 2 ) ) );
+		$this->customNonce  = "{$this->customPrefix}Nonce";
+		$this->wpdb         = $wpdb;
+		$this->settingsName = "{$this->customPrefix}_settings";
 	}
 
 }

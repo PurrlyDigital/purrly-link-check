@@ -3,18 +3,19 @@
 /*
 Plugin Name: Purrly Digital Link Check
 Plugin URI: https://www.purrlydigital.com/plugins/link-check
-Description: Make sure that all the sites you link out to are valid on a regular basis.
+Description: Make sure that all links in your content are valid.
 Version: 0.1
-Author: Maje Media LLC
+Author: Purrly Digital LLC
 Author URI: https://www.purrlydigital.com/plugins/link-check
 Copyright: 2022
-Text Domain: purrly-link-check
+Text Domain: purrly_link_check
 Domain Path: /lang
 */
 
 namespace purrly_link_check;
 
 use purrly_link_check\Classes\Base;
+use purrly_link_check\Classes\Settings;
 
 if( ! defined( 'ABSPATH' ) ) {
 	die();
@@ -38,6 +39,8 @@ class purrly_link_check extends Base {
 	public function __construct() {
 
 		parent::__construct();
+
+		new Settings();
 
 	}
 
